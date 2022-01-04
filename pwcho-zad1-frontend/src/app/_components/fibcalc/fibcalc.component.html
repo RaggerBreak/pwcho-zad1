@@ -1,0 +1,48 @@
+<hr>
+<h3>Fib calc</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      <strong>Enter your index: </strong>
+      <input type="number" class="form-control" name="fibonacciPosition" min="1" max="20" [(ngModel)]="formFib.fibonacciPosition" required #fibonacciPosition="ngModel"/>
+      <button (click)="onClickCalculateFibonacciNumber()" type="button" class="btn px-3">Submit</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div *ngIf="fibResult != null">
+  <br>
+  <span><strong>Position: </strong>{{fibResult.position}}</span>
+  |
+  <span><strong>Value: </strong>{{fibResult.value}}</span>
+</div>
+
+<hr>
+<h3>Last 10 indexes:</h3>
+<span *ngFor="let position of positions">
+  {{position.position}} |
+</span>
+
+<hr>
+<h3><button (click)="onClickHistory()" type="button" class="btn px-3">History</button></h3>
+<table class="table" border="1">
+  <thead>
+  <tr>
+    <th scope="col">position</th>
+    <th scope="col">value</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let fibHist of fibHistory">
+    <td>{{fibHist.position}}</td>
+    <td>{{fibHist.value}}</td>
+  </tr>
+  </tbody>
+</table>
+

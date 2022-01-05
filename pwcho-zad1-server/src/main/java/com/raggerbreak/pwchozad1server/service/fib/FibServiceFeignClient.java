@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@FeignClient(name = "${feign.name}", url = "${feign.url}")
+@FeignClient(value = "${feign.name}", url = "${feign.url}/api/fib/")
 public interface FibServiceFeignClient {
 
     @RequestMapping(method = RequestMethod.POST, value = "/{fibonacciPosition}", produces = "application/json")

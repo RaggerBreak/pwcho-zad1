@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {FibonacciNumber} from "../_common/fibonacci-number";
 import {FibPosition} from "../_common/fib-position";
 
-const API_URL = 'http://localhost:8082/api/server';
+const API_URL = 'http://localhost:9090/api/server';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

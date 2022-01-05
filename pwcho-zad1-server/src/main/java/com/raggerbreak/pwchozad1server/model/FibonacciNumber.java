@@ -1,6 +1,5 @@
 package com.raggerbreak.pwchozad1server.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.io.Serializable;

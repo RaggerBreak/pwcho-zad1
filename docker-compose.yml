@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  pwcho-zad1-frontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./pwcho-zad1-frontend
+    ports:
+      - '80:80'
+
+  pwcho-zad1-gateway:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./pwcho-zad1-gateway
+    ports:
+        - '9090:9090'
+    environment:
+      - PWCHO_FIB_URL=pwcho-zad1-fib
+      - PWCHO_FIB_PORT=8081
+      - PWCHO_SERVER_URL=pwcho-zad1-server
+      - PWCHO_SERVER_PORT=8082
+
+  pwcho-zad1-fib:
+    depends_on:
+      - redis
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./pwcho-zad1-fib
+    ports:
+      - '8081:8081'
+    environment:
+      - SPRING_REDIS_DATABASE=0
+      - SPRING_REDIS_HOST=redis
+      - SPRING_REDIS_PORT=6379
+      - SPRING_REDIS_PASSWORD=redispassword
+      - SPRING_REDIS_TIMEOUT=60000
+
+  pwcho-zad1-server:
+    depends_on:
+      - pwcho-zad1-fib
+      - postgres
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./pwcho-zad1-server
+    ports:
+      - '8082:8082'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgrespassword
+      - FEIGN_NAME=pwcho-zad1-fib
+      - FEIGN_URL=pwcho-zad1-gateway:9090
+

@@ -12,9 +12,6 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: Generate deployment package
-        run: zip -r deploy.zip .
-
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
         with:
@@ -26,4 +23,4 @@ jobs:
           use_existing_version_if_available: true
           version_label: 12345
           region: us-east-2
-          deployment_package: deploy.zip
+          deployment_package: . -x '*.git*

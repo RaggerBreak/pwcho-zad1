@@ -30,10 +30,9 @@ services:
       - '8081:8081'
     environment:
       - SPRING_REDIS_DATABASE=0
-      - SPRING_REDIS_HOST=redis
-      - SPRING_REDIS_PORT=6379
-      - SPRING_REDIS_PASSWORD=redispassword
-      - SPRING_REDIS_TIMEOUT=60000
+      - SPRING_REDIS_HOST=$REDIS_HOST
+      - SPRING_REDIS_PORT=$REDIS_PORT
+      - SPRING_REDIS_TIMEOUT=$REDIS_TIMEOUT
 
   pwcho-zad1-server:
     depends_on:
@@ -45,9 +44,9 @@ services:
     ports:
       - '8082:8082'
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgrespassword
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB
+      - SPRING_DATASOURCE_USERNAME=$POSTGRES_USERNAME
+      - SPRING_DATASOURCE_PASSWORD=$POSTGRES_PASSWORD
       - FEIGN_NAME=pwcho-zad1-fib
       - FEIGN_URL=pwcho-zad1-gateway:9090
 

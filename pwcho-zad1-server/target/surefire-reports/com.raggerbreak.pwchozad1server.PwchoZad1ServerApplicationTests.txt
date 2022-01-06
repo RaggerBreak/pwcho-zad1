@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.raggerbreak.pwchozad1server.PwchoZad1ServerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.44 s - in com.raggerbreak.pwchozad1server.PwchoZad1ServerApplicationTests

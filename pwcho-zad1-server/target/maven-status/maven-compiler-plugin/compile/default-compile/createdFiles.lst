@@ -1,0 +1,15 @@
+com\raggerbreak\pwchozad1server\repository\FibPositionRepository.class
+com\raggerbreak\pwchozad1server\service\FibonacciServerService.class
+com\raggerbreak\pwchozad1server\service\fib\FibServiceFeignImpl.class
+com\raggerbreak\pwchozad1server\config\OpenFeignConfig.class
+com\raggerbreak\pwchozad1server\model\FibPosition.class
+com\raggerbreak\pwchozad1server\model\FibonacciNumber.class
+com\raggerbreak\pwchozad1server\service\FibonacciServerServiceImpl.class
+com\raggerbreak\pwchozad1server\service\fib\FibServiceFeign.class
+com\raggerbreak\pwchozad1server\service\fib\FibServiceFeignClient.class
+com\raggerbreak\pwchozad1server\service\FibPositionServiceImpl.class
+com\raggerbreak\pwchozad1server\model\FibPosition$FibPositionBuilder.class
+com\raggerbreak\pwchozad1server\PwchoZad1ServerApplication.class
+com\raggerbreak\pwchozad1server\web\controller\FibonacciServerController.class
+com\raggerbreak\pwchozad1server\model\FibonacciNumber$FibonacciNumberBuilder.class
+com\raggerbreak\pwchozad1server\service\FibPositionService.class

@@ -1,1 +1,62 @@
-<p>documentation works!</p>
+<h1>Technologies</h1>
+<ul>
+  <li>Java 11</li>
+  <li>Maven</li>
+  <li>Angular</li>
+  <li>Spring Framework</li>
+  <ul>
+    <li>Spring Cloud</li>
+    <li>Spring Cloud Gateway</li>
+    <li>Spring Cloud OpenFeign</li>
+  </ul>
+  <li>Redis</li>
+  <li>PostgreSQL</li>
+  <li>JPA, Hibernate</li>
+  <li>Docker, Docker Compose</li>
+</ul>
+
+<h1>Architecture</h1>
+<img src="assets/img/architecture.png">
+
+<h1>Application</h1>
+<strong>Fib calc -> submit</strong>
+<ol>
+  <li>
+    <p [textContent]="'FRONTEND call SERVER (POST /api/server/fib/{fibonacciPosition}) via Gateway to calculate, save and return fibonacci number'"></p>
+  </li>
+  <li>
+    <p [textContent]="'SERVER call FIB (POST /api/fib/{fibonacciPosition}) via OpenFeign'"></p>
+  </li>
+  <li>
+    <p [textContent]="'FIB calculate fibonacci number, save in Redis and return result'"></p>
+  </li>
+  <li>
+    <p [textContent]="'SERVER save result from FIB in Postgres and return to FRONTEND'"></p>
+  </li>
+</ol>
+
+<strong>Fib calc -> Last 10 indexes</strong>
+<ol>
+  <li>
+    <p [textContent]="'FRONTEND call SERVER (GET /api/server/position/last10) via Gateway'"></p>
+  </li>
+  <li>
+    <p [textContent]="'SERVER returns to FRONTEND last ten given positions from Postgres'"></p>
+  </li>
+</ol>
+
+<strong>Fib calc -> History</strong>
+<ol>
+  <li>
+    <p [textContent]="'FRONTEND call SERVER (GET /api/server/fib/all) via Gateway'"></p>
+  </li>
+  <li>
+    <p [textContent]="'SERVER call FIB (GET /api/fib/all) via OpenFeign'"></p>
+  </li>
+  <li>
+    <p [textContent]="'FIB returns to SERVER history of calculated fibonacci numbers from Redis'"></p>
+  </li>
+  <li>
+    <p [textContent]="'SERVER returns history of calculated fibonacci numbers to FRONTEND'"></p>
+  </li>
+</ol>

@@ -22,8 +22,6 @@ services:
       - PWCHO_SERVER_PORT=8082
 
   pwcho-zad1-fib:
-    depends_on:
-      - redis
     restart: always
     build:
       dockerfile: Dockerfile.dev
@@ -40,7 +38,6 @@ services:
   pwcho-zad1-server:
     depends_on:
       - pwcho-zad1-fib
-      - postgres
     restart: always
     build:
       dockerfile: Dockerfile.dev

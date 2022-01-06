@@ -23,6 +23,7 @@ jobs:
           application_name: multifib
           environment_name: Multifib-env
           existing_bucket_name: elasticbeanstalk-us-east-2-862524626250
+          use_existing_version_if_available: true
           version_label: 12345
           region: us-east-2
           deployment_package: deploy.zip
